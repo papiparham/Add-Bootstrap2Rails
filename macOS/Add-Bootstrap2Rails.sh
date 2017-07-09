@@ -1,6 +1,6 @@
 #!/bin/sh
 
-Current_Version=1.2.0049
+Current_Version=1.2.0050
 Year=$(date +"%Y")
 
 home() {
@@ -122,4 +122,28 @@ find . -name '$APPDIR/app/views/layouts/application.html.erb' -print0 | xargs -0
   echo "Done!..."
 }
 
-home
+if [ "$1" != "" ]; then
+  DOMAIN="$1"
+else
+  home
+fi
+
+if [ "$2" != "" ]; then
+  ENTITY="$2"
+else
+  start
+fi
+
+if [ "$3" != "" ]; then
+  PROJECT="$3"
+else
+  next
+fi
+
+if [ "$4" != "" ]; then
+  APPLICATION="$4"
+else
+  step
+fi
+
+create
